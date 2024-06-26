@@ -6,6 +6,7 @@ use App\Http\Requests\CreateLessonRequest;
 use App\Models\Lesson;
 use App\Models\UserRole;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Log;
 
 class LessonController extends Controller
 {
@@ -43,6 +44,8 @@ class LessonController extends Controller
         if (!$lesson){
             return response()->json(["message" => "Dars mavjud emas!"], 404);
         }else{
+            $lesson->view += 1;
+            $lesson->save();
             return $lesson;
         }
     }

@@ -18,6 +18,7 @@ return new class extends Migration
             $table->string('video');
             $table->foreignId('course_id')->constrained('courses');
             $table->foreignId('user_id')->constrained('users');
+            $table->integer('view')->default(0);
             $table->boolean('active')->default(true);
             $table->timestamps();
         });

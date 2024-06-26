@@ -14,16 +14,12 @@ class Lesson extends Model
         'video',
         'course_id',
         'user_id',
-        'active'
+        'active',
+        'view'
     ];
 
     public function course()
     {
         return $this->hasMany(Course::class, 'id', 'course_id');
     }
-
-    // public function category()
-    // {
-    //     return $this->belongsTo(Category::class);
-    // }
 }
